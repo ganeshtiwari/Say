@@ -1,3 +1,5 @@
+package utility;
+
 import execptions.UnsupportedEnvException;
 import lombok.Getter;
 
