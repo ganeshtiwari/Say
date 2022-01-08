@@ -1,0 +1,15 @@
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+workspace.xml
+tasks.xml
+
+
+### config files ###
+#*.properties
