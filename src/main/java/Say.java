@@ -1,6 +1,8 @@
 import execptions.NotImplementedException;
 import execptions.UnsupportedEnvException;
 import platform.SayI;
+import utility.CommandExecutor;
+import utility.OsUtil;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
  * TODO: allow concurrent calls
  * TODO: Kill process on demand
  * TODO: Use design properly
+ * TODO: Configure a debugger
  */
 public class Say {
     public static void say(String text) throws NotImplementedException {
