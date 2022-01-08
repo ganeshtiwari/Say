@@ -6,18 +6,18 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Say Main Class
+ * <h1>Say Main Class</h1>
+ * TODO: add option to select voice (throw exception if voice is unavailable
  * TODO: allow concurrent calls
  * TODO: Kill process on demand
  * TODO: Use design properly
  */
 public class Say {
-
-    public static void main(String... args) throws NotImplementedException {
+    public static void say(String text) throws NotImplementedException {
         CommandExecutor executor = new CommandExecutor();
 
         SayI say = SayFactory.getSay(OsUtil.getOsName());
-        List<String> command = say.buildCommand("Hello this is ganesh");
+        List<String> command = say.buildCommand(text);
 
         try {
             int status = executor.executeCommand(command);
@@ -26,5 +26,9 @@ public class Say {
         } catch (UnsupportedEnvException | IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String... args) throws NotImplementedException {
+        say("This is a test text");
     }
 }
