@@ -1,18 +1,24 @@
+import execptions.NotImplementedException;
 import execptions.UnsupportedEnvException;
+import platform.SayI;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    public static void main(String... args) {
+/**
+ * Say Main Class
+ * TODO: allow concurrent calls
+ * TODO: Kill process on demand
+ * TODO: Use design properly
+ */
+public class Say {
+
+    public static void main(String... args) throws NotImplementedException {
         CommandExecutor executor = new CommandExecutor();
 
-        String textToSpeak = "This is a test text.";
+        SayI say = SayFactory.getSay(OsUtil.getOsName());
+        List<String> command = say.buildCommand("Hello this is ganesh");
 
-        List<String> command = new ArrayList<>();
-        command.add("$voice = New-Object -ComObject Sapi.spvoice;");
-        command.add(String.format("$voice.speak('%s')", textToSpeak));
         try {
             int status = executor.executeCommand(command);
             System.out.println(executor.getOutput());
